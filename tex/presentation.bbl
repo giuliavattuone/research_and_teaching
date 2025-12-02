@@ -1,0 +1,11 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  This bbl file is created by aea.bst ver.3.2
+%  The latest aea.bst is available at
+%  <https://github.com/ShiroTakeda/econ-bst>
+
+\begin{thebibliography}{xxx}
+
+\harvarditem[Roca and Puga]{Roca and Puga}{2016}{PugaRoca2016bigcities}
+\textbf{Roca, Jorge De~La, and Diego Puga.} 2016. ``Learning by Working in Big Cities.'' \textit{The Review of Economic Studies} 84 (1):   106--142. \href{http://dx.doi.org/10.1093/restud/rdw031}{\urlstyle{rm} \nolinkurl{10.1093/restud/rdw031}}.
+
+\end{thebibliography}

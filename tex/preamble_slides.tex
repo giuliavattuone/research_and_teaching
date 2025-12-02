@@ -1,0 +1,390 @@
+
+% Original version: https://github.com/kylebutts/templates/tree/master/latex-slides
+% Modified 
+
+% xcolor and define colors -------------------------
+\usepackage{xcolor}
+
+% https://www.viget.com/articles/color-contrast/
+\definecolor{purple}{HTML}{5601A4}
+\definecolor{navy}{HTML}{0D3D56}
+\definecolor{ruby}{HTML}{9a2515}
+\definecolor{alice}{HTML}{107895}
+\definecolor{darkcyan}{HTML}{008B8B}
+\definecolor{darkbyz}{HTML}{5D3954}
+\definecolor{darkgold}{HTML}{B8860B}
+\definecolor{daisy}{HTML}{EBC944}
+%\definecolor{coral}{HTML}{F26D21}
+\definecolor{coral}{HTML}{CD5B45}
+\definecolor{kelly}{HTML}{829356}
+\definecolor{cranberry}{HTML}{E64173}
+\definecolor{jet}{HTML}{131516}
+\definecolor{asher}{HTML}{555F61}
+\definecolor{slate}{HTML}{314F4F}
+\definecolor{forestgreen}{HTML}{228B22}
+\definecolor{mossgreen}{HTML}{4CBB17}
+\definecolor{huntergreen}{HTML}{355E3B}
+\definecolor{seaweedgreen}{HTML}{2E8B57}
+\definecolor{sagegreen}{HTML}{88B04B}
+
+\definecolor{myblue}{HTML}{0072B2}
+\definecolor{myorange}{HTML}{D55E00}
+
+
+
+% Main theme colors
+%\definecolor{accent}{HTML}{558877}
+\definecolor{accent}{HTML}{0D3D56} % navy
+\definecolor{accent2}{HTML}{A23E02}
+%735d87
+%995544
+%#A23E02
+%#2E4963
+
+
+% Beamer Options -------------------------------------
+
+% Background
+\setbeamercolor{background canvas}{bg = white}
+
+% Change text margins
+\setbeamersize{text margin left = 12pt, text margin right = 12pt} 
+
+% \alert
+\setbeamercolor{alerted text}{fg = accent}
+
+% Frame title
+\setbeamercolor{frametitle}{bg = white, fg = accent}
+\setbeamercolor{framesubtitle}{bg = white, fg = accent}
+\setbeamerfont{frametitle}{size = \Large, shape = \scshape}
+\setbeamerfont{framesubtitle}{size = \footnotesize, shape = \upshape}
+
+% Frame body font
+\setbeamerfont{normal text}{size=\normalsize, series=\upshape}
+\AtBeginDocument{\usebeamerfont{normal text}}
+
+
+% Block
+\definecolor{blockbody}{HTML}{fcf0de}
+\setbeamercolor{block title}{fg = white, bg = accent}
+\setbeamercolor{block body}{fg = jet, bg = blockbody}
+
+% Title page
+\setbeamercolor{title}{fg = accent}
+\setbeamercolor{subtitle}{fg = accent}
+\setbeamerfont{title}{size = \LARGE}
+\setbeamerfont{subtitle}{size = \Large}
+
+% Custom Title Page Template
+\newcommand{\authorcolumns}{2} % Default number of columns for authors and institutes
+\setbeamertemplate{title page}
+{
+    \begin{centering}
+        \vspace{20mm}
+        {\scshape \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\\
+        {\color{accent} \rule{10cm}{0.3pt}}\\[5mm]
+
+        {\setlength{\columnsep}{-100pt}   
+        \begin{multicols}{\authorcolumns}
+            \insertauthor
+        \end{multicols}
+        }
+
+        \vspace{-2em}
+
+        {\setlength{\columnsep}{-100pt}
+        \begin{multicols}{\authorcolumns}
+            {\color{jet}\small\insertinstitute}
+        \end{multicols}
+        }
+
+        \vspace{5mm}
+        {\color{asher}\small\insertdate}\\
+    \end{centering}
+}
+
+
+
+% Table of Contents
+\setbeamercolor{section in toc}{fg = accent}
+\setbeamercolor{subsection in toc}{fg = jet}
+\setbeamerfont{section in toc}{size = \normalsize, shape = \scshape}
+
+% Button 
+\setbeamercolor{button}{bg = accent, fg = black}
+\setbeamertemplate{button}{\tikz
+  \node[
+  inner xsep=6pt,
+  inner ysep=2.5pt,
+  draw=accent,
+  fill=accent!25,
+  rounded corners=5pt]  {\scriptsize \insertbuttontext};}
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[black]{footline}%
+    %\hspace{1em}%
+    \insertframenumber %/\inserttotalframenumber
+}
+
+
+% Table and Figure captions
+\setbeamertemplate{caption}[numbered]
+\setbeamercolor{caption}{fg=accent!70!black}
+\setbeamercolor{caption name}{fg=jet}
+%\setbeamerfont{caption name}{shape = \itshape}
+
+% Bullet points
+
+%% Fix left-margins
+\settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
+\addtolength{\leftmargini}{\labelsep}
+
+%% enumerate item color
+\setbeamercolor{enumerate item}{fg = accent}
+\setbeamerfont{enumerate item}{size = \small}
+\setbeamercolor{enumerate subitem}{fg = accent}
+\setbeamerfont{enumerate subitem}{size = \footnotesize}
+\setbeamertemplate{enumerate item}{\insertenumlabel.}
+
+%% itemize
+\setbeamercolor{itemize item}{fg = accent}
+\setbeamerfont{itemize item}{size = \small}
+\setbeamertemplate{itemize item}[circle]
+
+%% right arrow for subitems
+\setbeamercolor{itemize subitem}{fg = accent}
+\setbeamerfont{itemize subitem}{size = \footnotesize}
+\setbeamertemplate{itemize subitem}{$\diamond$}%[square]
+
+\setbeamertemplate{itemize subsubitem}{$\rightarrow$}
+\setbeamercolor{itemize subsubitem}{fg = accent}
+\setbeamerfont{itemize subsubitem}{size = \small}
+
+% References
+
+%% Bibliography Font, roughly matching aea
+\setbeamerfont{bibliography item}{size = \footnotesize}
+\setbeamerfont{bibliography entry author}{size = \footnotesize, series = \bfseries}
+\setbeamerfont{bibliography entry title}{size = \footnotesize}
+\setbeamerfont{bibliography entry location}{size = \footnotesize, shape = \itshape}
+\setbeamerfont{bibliography entry note}{size = \footnotesize}
+
+\setbeamercolor{bibliography item}{fg = jet}
+\setbeamercolor{bibliography entry author}{fg = jet}
+\setbeamercolor{bibliography entry title}{fg = jet}
+\setbeamercolor{bibliography entry location}{fg = jet}
+\setbeamercolor{bibliography entry note}{fg = jet}
+
+%% Remove bibliography symbol in slides
+\setbeamertemplate{bibliography item}{}
+
+% deal with spanish characters
+\usepackage[utf8]{inputenc}    % utf8 support       
+\usepackage[T1]{fontenc}       % code for pdf file  
+
+
+
+
+
+% Links ----------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor = accent,
+  filecolor = accent,
+  urlcolor = accent,
+  citecolor = accent,
+}
+\pdfstringdefDisableCommands{\def\translate#1{#1}}
+
+% Line spacing --------------------------------------
+\usepackage{setspace}
+\setstretch{1.3}
+
+
+% \begin{columns} -----------------------------------
+\usepackage{multicol}
+
+
+% Fonts ---------------------------------------------
+% Beamer Option to use custom fonts
+\usefonttheme{serif}
+
+% \usepackage[utopia, smallerops, varg]{newtxmath}
+% \usepackage{utopia}
+%\usepackage[sfdefault,light]{roboto}
+\usepackage[OT1]{fontenc}
+
+
+% Small adjustments to text kerning
+\usepackage{microtype}
+
+
+
+% Remove annoying over-full box warnings -----------
+\vfuzz2pt 
+\hfuzz2pt
+
+
+% Table of Contents with Sections
+\setbeamerfont{myTOC}{series=\bfseries, size=\Large}
+\AtBeginSection[]{
+        \frame{
+            \frametitle{Outline}
+            \tableofcontents[current]   
+        }
+    }
+
+
+% References ----------------------------------------
+
+% note, natbib provides better hyperlinking
+\usepackage[round]{natbib}
+\bibliographystyle{econ-aea}
+
+% Reduced spacing in bibliography
+\AtBeginEnvironment{thebibliography}{\setstretch{1}}
+
+
+
+% Tables -------------------------------------------
+% Tables too big
+% \begin{adjustbox}{width = 1.2\textwidth, center}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{threeparttable, booktabs, adjustbox}
+    
+% Fix \input with tables
+% \input fails when \\ is at end of external .tex file
+
+\makeatletter
+\let\input\@@input
+\makeatother
+
+% Tables too narrow
+% \begin{tabularx}{\linewidth}{cols}
+% col-types: X - center, L - left, R -right
+% Relative scale: >{\hsize=.8\hsize}X/L/R
+\usepackage{tabularx}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+% Figures
+
+% \imageframe{img_name} -----------------------------
+% from https://github.com/mattjetwell/cousteau
+\newcommand{\imageframe}[1]{%
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture, overlay]
+            \node[at = (current page.center), xshift = 0cm] (cover) {%
+                \includegraphics[keepaspectratio, width=\paperwidth, height=\paperheight]{#1}
+            };
+        \end{tikzpicture}
+    \end{frame}%
+}
+
+% subfigures
+\usepackage{subfigure}
+
+
+% Highlight slide -----------------------------------
+% \begin{transitionframe} Text \end{transitionframe}
+% from paulgp's beamer tips
+\newenvironment{transitionframe}{
+    \setbeamercolor{background canvas} {bg=white} %{bg=accent!70!white}
+    \begin{frame}\color{accent}\scshape\LARGE\centering
+}{
+    \end{frame}
+}
+
+
+% Table Highlighting --------------------------------
+% Create top-left and bottom-right markets in tabular cells with a unique matching id and these commands will outline those cells
+\usepackage[beamer,customcolors]{hf-tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{fit,shapes.misc}
+
+% To set the hypothesis highlighting boxes red.
+\newcommand\marktopleft[1]{%
+    \tikz[overlay,remember picture] 
+        \node (marker-#1-a) at (0,1.5ex) {};%
+}
+\newcommand\markbottomright[1]{%
+    \tikz[overlay,remember picture] 
+        \node (marker-#1-b) at (0,0) {};%
+    \tikz[accent2, ultra thick, overlay, remember picture, inner sep=4pt]
+        \node[draw, rectangle, fit=(marker-#1-a.center) (marker-#1-b.center)] {};%
+}
+
+
+% Math symbols --------------------
+\newcommand{\myfrac}[3][0pt]{\genfrac{}{}{}{}{\raisebox{#1}{$#2$}}{\raisebox{-#1}{$#3$}}}
+\newcommand*\mystrut[1]{\vrule width0pt height0pt depth#1\relax}
+\usepackage{relsize} % for bigger summation operator
+
+
+% Indicator function
+\usepackage{dsfont}
+
+
+% Month-Year format for date
+%\usepackage{datetime}
+
+%\newdateformat{monthyeardate}{%
+ % \monthname[\THEMONTH], \THEYEAR}
+  
+  
+% Diagram ---------------------
+\usepackage{forest}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,trees,calc}
+\usetikzlibrary{arrows.meta, shapes.geometric, calc, shadows}
+
+\colorlet{mygreen}{green!75!black}
+\colorlet{col1in}{red!30}
+\colorlet{col1out}{red!40}
+\colorlet{col2in}{mygreen!40}
+\colorlet{col2out}{mygreen!50}
+\colorlet{col3in}{blue!30}
+\colorlet{col3out}{blue!40}
+\colorlet{col4in}{mygreen!20}
+\colorlet{col4out}{mygreen!30}
+\colorlet{col5in}{blue!10}
+\colorlet{col5out}{blue!20}
+\colorlet{col6in}{blue!20}
+\colorlet{col6out}{blue!30}
+\colorlet{col7out}{orange}
+\colorlet{col7in}{orange!50}
+\colorlet{col8out}{orange!40}
+\colorlet{col8in}{orange!20}
+\colorlet{linecol}{blue!60}
+
+\definecolor{top}{HTML}{dfada8}
+\definecolor{mid}{HTML}{c4c4c4}
+\definecolor{bot}{HTML}{e5c4a2}
+
+\tikzset{
+  basic/.style  = {draw, text centered, text width=10cm, font=\rmfamily\bfseries\large, rectangle, minimum height=25pt},
+  root/.style   = {basic, rounded corners=8pt, thick, align=center, fill=top},
+  level 2/.style = {basic, rounded corners=8pt, thick, align=center, fill=mid, text width=20em},
+  level 3/.style = {ellipse, thin, align=center, fill=bot, text width=10em}
+}
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
